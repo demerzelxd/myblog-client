@@ -1,15 +1,24 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+import Login from '../components/user/Login'
+import BlogDetail from '../components/blog/BlogDetail'
+import BlogEdit from '../components/blog/BlogEdit'
+import Blogs from '../components/blog/Blogs'
 
 Vue.use(Router)
 
 export default new Router({
     routes: [
-        {
-            path: '/',
-            name: 'HelloWorld',
-            component: HelloWorld
-        }
-    ]
+        {path: '/', redirect: '/index'},
+        {path: '/index', component: Blogs},
+        {path: '/login', component: Login},
+        {path: '/add', component: BlogEdit},
+        // 详情页面url类似于/blog/1
+        {path: '/blog/:blogId', component: BlogDetail},
+        // 编辑页面url类似于/edit/1
+        {path: '/edit/:blogId', component: BlogEdit}
+    ],
+    // 去除#，把Router的mode修改为history模式，VueRouter默认的模式为hash模式
+    // 加上#后访问别的路由不会刷新页面，换成history后切换路由需要刷新
+    mode: 'history'
 })

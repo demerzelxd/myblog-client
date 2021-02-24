@@ -25,6 +25,10 @@ module.exports = {
         'indent': 'off',
         // 关闭变量未使用的警告
         "no-unused-vars":"off",
+        // 关闭没有template中div缩进的警告
+        "no-tabs":"off",
+        // 关闭多余空格警告
+        "no-trailing-spaces":"off",
         // allow async-await
         'generator-star-spacing': 'off',
         // allow debugger during development
