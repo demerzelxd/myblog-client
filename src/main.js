@@ -10,6 +10,8 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 // 引入vuex的store实例
 import store from './store'
+// 引入全局axios拦截
+import './axios-interceptor'
 
 Vue.prototype.$http = axios
 Vue.use(ElementUI)

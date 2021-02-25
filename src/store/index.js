@@ -31,8 +31,8 @@ const store = new Vuex.Store({
         REMOVE_INFO: (state) => {
             state.token = ''
             state.userInfo = {}
-            localStorage.setItem('token', '')
-            sessionStorage.setItem('userInfo', '')
+            localStorage.removeItem('token')
+            sessionStorage.removeItem('userInfo')
         }
     },
     // getters用来对共享数据计算属性，相当于computed

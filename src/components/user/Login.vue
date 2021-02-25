@@ -142,27 +142,19 @@ export default {
 			this.$refs[formName].validate((valid) => {
 				if (valid) {
 					// 验证通过才发送请求提交
-					this.$http.post('http://localhost:8081/user/login', this.loginForm).then((resp) => {
+					this.$http.post('/user/login', this.loginForm).then((resp) => {
 						// console.log(resp.headers)
 						// console.log(resp.data)
-						if (resp.data.success) {
-							this.$message({
-								message: '登录成功',
-								type: 'success'
-							})
-							// 获取返回的header头信息
-							const token = resp.headers['auth']
-							const userInfo = resp.data.data
-							// 存入vuex
-							this.$store.commit('SET_TOKEN', token)
-							this.$store.commit('SET_USER_INFO', userInfo)
-							// 清空表单
-							this.loginForm = {}
-							// 跳转路由
-							this.$router.push('/index')
-						} else {
-							this.$message.error(resp.data.msg)
-						}
+						// 获取返回的header头信息
+						const token = resp.headers['auth']
+						const userInfo = resp.data.data
+						// 存入vuex
+						this.$store.commit('SET_TOKEN', token)
+						this.$store.commit('SET_USER_INFO', userInfo)
+						// 清空表单
+						this.loginForm = {}
+						// 跳转路由
+						this.$router.push('/index')
 					})
 				} else {
 					this.$message.error('当前输入的用户名或密码不合法')
@@ -176,17 +168,15 @@ export default {
 			this.$refs[formName].validate((valid) => {
 				if (valid) {
 					// 验证通过才发送请求提交
-					this.$http.post('http://localhost:8081/user/logon', this.logonForm).then((resp) => {
+					this.$http.post('/user/logon', this.logonForm).then((resp) => {
 						// console.log(resp.data)
+						// 清空表单
+						this.logonForm = {}
+						// 注册成功则切换至登录
 						if (resp.data.success) {
-							this.$message({
-								message: '注册成功',
-								type: 'success'
-							})
-							// 清空表单
-							this.logonForm = {}
-						} else {
-							this.$message.error(resp.data.msg)
+							this.switchForm()
+							// 回显信息
+							this.loginForm.username = resp.data.data.username
 						}
 					})
 				} else {
