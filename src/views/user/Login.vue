@@ -173,11 +173,9 @@ export default {
 						// 清空表单
 						this.logonForm = {}
 						// 注册成功则切换至登录
-						if (resp.data.success) {
-							this.switchForm()
-							// 回显信息
-							this.loginForm.username = resp.data.data.username
-						}
+						this.switchForm()
+						// 回显信息
+						this.loginForm.username = resp.data.data.username
 					})
 				} else {
 					this.$message.error('当前输入的用户名、密码或邮箱不合法')

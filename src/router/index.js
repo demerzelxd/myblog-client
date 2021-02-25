@@ -1,9 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Login from '../components/user/Login'
-import BlogDetail from '../components/blog/BlogDetail'
-import BlogEdit from '../components/blog/BlogEdit'
-import Blogs from '../components/blog/Blogs'
+import Login from '../views/user/Login'
+import BlogDetail from '../views/blog/BlogDetail'
+import BlogEdit from '../views/blog/BlogEdit'
+import Blogs from '../views/blog/Blogs'
 
 Vue.use(Router)
 
