@@ -16,10 +16,12 @@ axios.interceptors.response.use(resp => {
 	if (resp.data.code === 200) {
 		// 不能使用this，因为axios.js是挂靠在main.js的，没有this
 		// 因为之前Vue.use(ElementUI)，所以可以使用Vue的原型来调用
-		Vue.prototype.$message.success({
-			message: resp.data.msg,
-			duration: duration
-		})
+		if (resp.data.msg) {
+			Vue.prototype.$message.success({
+				message: resp.data.msg,
+				duration: duration
+			})
+		}
 		return resp
 	} else {
 		// 不能使用this，因为axios.js是挂靠在main.js的，没有this

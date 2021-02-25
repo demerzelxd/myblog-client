@@ -67,10 +67,6 @@ export default {
 
 <style scoped>
 	.gis-header {
-		max-width: 960px;
-		/*外部容器居中*/
-		margin: 0 auto;
-		/*内部元素居中*/
 		text-align: center;
 	}
 

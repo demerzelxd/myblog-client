@@ -14,7 +14,7 @@ export default new Router({
         {path: '/login', component: Login},
         {path: '/add', component: BlogEdit},
         // 详情页面url类似于/blog/1
-        {path: '/blog/:blogId', component: BlogDetail},
+        {path: '/blog/:blogId', name: 'BlogDetail', component: BlogDetail},
         // 编辑页面url类似于/edit/1
         {path: '/edit/:blogId', component: BlogEdit}
     ],

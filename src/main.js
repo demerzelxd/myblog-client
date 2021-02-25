@@ -12,9 +12,13 @@ import 'element-ui/lib/theme-chalk/index.css'
 import store from './store'
 // 引入全局axios拦截
 import './axios-interceptor'
+// 全局注册markdown插件mavonEditor
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
 
 Vue.prototype.$http = axios
 Vue.use(ElementUI)
+Vue.use(mavonEditor)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
