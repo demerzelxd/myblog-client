@@ -55,6 +55,8 @@ export default {
 	},
 	created () {
 		// 回显姓名
+		// 查看保存数据更短的sessionStorage是否有值
+		// 如果sessionStorage中值不存在，则显示登录按钮
 		if (this.$store.state.userInfo) {
 			this.user.username = this.$store.state.userInfo.username
 			this.user.avatar = this.$store.state.userInfo.avatar

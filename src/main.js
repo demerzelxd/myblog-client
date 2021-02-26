@@ -15,10 +15,13 @@ import './axios-interceptor'
 // 全局注册markdown插件mavonEditor
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
+// 引入路由权限拦截
+import './permission'
 
 Vue.prototype.$http = axios
 Vue.use(ElementUI)
 Vue.use(mavonEditor)
+axios.defaults.withCredentials = true
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

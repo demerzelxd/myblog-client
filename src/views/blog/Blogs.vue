@@ -5,7 +5,7 @@
 		<div class="block">
 			<el-timeline>
 				<el-timeline-item :timestamp="blog.createTime" placement="top" v-for="blog in blogList" :key="blog.id">
-					<el-card>
+					<el-card shadow="hover">
 						<h4>
 							<router-link :to="{name: 'BlogDetail', params: {blogId: blog.id}}">
 								{{ blog.title }}
@@ -25,7 +25,7 @@
 				:total="total"
 				@current-change="findPage"
 				@size-change="findSize"
-				style="margin: 0 auto; text-align: center">
+				style="text-align: center">
 			</el-pagination>
 		</div>
 	</div>
